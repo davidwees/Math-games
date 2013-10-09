@@ -1,0 +1,218 @@
+<html>
+  <head>
+    <title>Blocks</title>
+    <script type="text/javascript" src="jquery/jquery.js"></script>
+    <script type="text/javascript" src="jquery/jquery.dimensions.js"></script>
+    <script type="text/javascript" src="jquery/jquery.ui.all.js"></script>
+    <script type="text/javascript" src="js/blocks.js"></script>
+    <script type="text/javascript" src="js/puzzles.js"></script>
+    <style type="text/css">
+      #debug {
+        position: absolute;
+        left: 1380px;
+        top: 50px;
+      }
+      
+      #debugButton {
+        position: absolute;
+        left: 1380px;
+        top: 20px;
+      }
+      
+      #theCanvas {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+      }
+      
+      #dropZone {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 900px;
+        height: 700px;
+      }
+      
+      #squarebuttons {
+        position: absolute;
+        left: 940px;
+        top: 168px;
+        border: 2px dashed black;
+        padding: 8px;
+      }
+      
+      #squarebuttons a {
+        background-image:url('images/numberbuttons.png');
+        display: block;
+        width: 98px;
+        height: 93px;
+        margin-top: 5px;
+        border: 4px solid white;
+      }
+      
+      #squarebuttons a:hover {
+        border: 4px solid gold;
+      }
+      
+      #square1 {
+        background-position: 0px 0px;
+      }
+      
+      #square2 {
+        background-position: 0px -93px;
+      }
+
+      #square3 {
+        background-position: 0px -186px;
+      }
+
+      #square4 {
+        background-position: 0px -279px;
+      }
+      
+      #square5 {
+        background-position: 0px -372px;
+      }
+      
+      #rectanglebuttons1 {
+        position: absolute;
+        left: 1078px;
+        top: 168px;
+        border: 2px dashed black;
+        padding: 8px;
+      }
+      
+      #rectanglebuttons1 a {
+        background-image:url('images/rectanglebuttons1.png');
+        display: block;
+        width: 98px;
+        height: 93px;
+        margin-top: 5px;
+        border: 4px solid white;
+      }
+      
+      #rectanglebuttons1 a:hover {
+        border: 4px solid gold;
+      }
+      
+      #rectangle1x2 {
+        background-position: 0px 0px;
+      }
+      
+      #rectangle1x3 {
+        background-position: 0px -93px;
+      }
+
+      #rectangle2x3 {
+        background-position: 0px -186px;
+      }
+
+      #rectangle2x4 {
+        background-position: 0px -279px;
+      }
+      
+      #rectangle3x4 {
+        background-position: 0px -372px;
+      }
+      
+      #rectanglebuttons2 {
+        position: absolute;
+        left: 1215px;
+        top: 168px;
+        border: 2px dashed black;
+        padding: 8px;
+      }
+      
+      #rectanglebuttons2 a {
+        background-image:url('images/rectanglebuttons2.png');
+        display: block;
+        width: 98px;
+        height: 93px;
+        margin-top: 5px;
+        border: 4px solid white;
+      }
+      
+      #rectanglebuttons2 a:hover {
+        border: 4px solid gold;
+      }
+      
+      #rectangle2x1 {
+        background-position: 0px 0px;
+      }
+      
+      #rectangle3x1 {
+        background-position: 0px -93px;
+      }
+
+      #rectangle3x2 {
+        background-position: 0px -186px;
+      }
+
+      #rectangle4x2 {
+        background-position: 0px -279px;
+      }
+      
+      #rectangle4x3 {
+        background-position: 0px -372px;
+      }
+      
+      #gameInfo {
+        position: absolute;
+        left: 940px;
+        top: 20px;
+        border: 2px dashed black;
+        padding: 10px;
+        width: 100px;
+        height: 110px;
+      }
+      
+      #gameinfo input {
+        width: 80px;
+      }
+      
+      #backgroundImage {
+        position: absolute;
+        left: 18px;
+        top: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <img src="images/background.png" id="backgroundImage" />
+    <canvas id="theCanvas" width="900" height="700"></canvas>
+    
+    <div id="gameInfo">
+      <div id="points">Points: 0</div>
+      <div id="puzzleNumber">Puzzle: #1</div>
+      <input type="button" value="restart" id="restart" />
+      <input type="button" value="previous" id="previous" />
+      <input type="button" value="next" id="next" />
+    </div>
+    <div id="dropZone"></div>
+    <div id="squarebuttons">
+      <a href="#" id="square1" class="droppableBox"></a>
+      <a href="#" id="square2" class="droppableBox"></a>
+      <a href="#" id="square3" class="droppableBox"></a>
+      <a href="#" id="square4" class="droppableBox"></a>
+      <a href="#" id="square5" class="droppableBox"></a>
+    </div>
+    <div id="rectanglebuttons1">
+      <a href="#" id="rectangle1x2" class="droppableBox"></a>
+      <a href="#" id="rectangle1x3" class="droppableBox"></a>
+      <a href="#" id="rectangle2x3" class="droppableBox"></a>
+      <a href="#" id="rectangle2x4" class="droppableBox"></a>
+      <a href="#" id="rectangle3x4" class="droppableBox"></a>
+    </div>
+    <div id="rectanglebuttons2">
+      <a href="#" id="rectangle2x1" class="droppableBox"></a>
+      <a href="#" id="rectangle3x1" class="droppableBox"></a>
+      <a href="#" id="rectangle3x2" class="droppableBox"></a>
+      <a href="#" id="rectangle4x2" class="droppableBox"></a>
+      <a href="#" id="rectangle4x3" class="droppableBox"></a>
+    </div>
+    <!--<input type="button" value="debug" id="debugButton" />-->
+    <div id="debug"></div>
+  
+  </body>
+</html>

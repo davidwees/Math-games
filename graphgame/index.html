@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+    <title>Graph game</title>
+    <link rel="stylesheet" href="jquery/themes/smoothness/jquery-ui-1.10.3.custom.css" />
+    <script type="text/javascript" src="jquery/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="jquery/jquery-ui-1.10.3.custom.js"></script>
+    <script type="text/javascript" src="js/puzzles.js"></script>
+    <script type="text/javascript" src="js/readinggraphs.js"></script>
+
+    <style type="text/css">
+      #debug {
+        position: absolute;
+        left: 1000px;
+        top: 150px;
+      }
+      
+      #graph, #theCanvas {
+        position: absolute;
+        left: 20px;
+        top: 20px;
+      }
+      
+      #theCanvas {
+        border: 4px solid black;
+      }
+      
+      #controls {
+        position: absolute;
+        top: 20px;
+        border: 4px solid black;
+        left: 824px;
+        height: 446px;
+        width: 400px;
+      }
+      
+      #puzzleName {
+        position: absolute;
+        top: 20px;
+        left: 40px;
+        font-size: 30px;
+      }
+      
+      #restart {
+        position: absolute;
+        top: 60px;
+        left: 40px;
+        width: 80px;
+      }
+      
+      #previous {
+        position: absolute;
+        top: 60px;
+        left: 140px;
+        width: 80px;
+      }
+      
+      #next {
+        position: absolute;
+        top: 60px;
+        left: 240px;
+        width: 80px;
+      }
+      
+      #score-label {
+        position: absolute;
+        top: 150px;
+        left: 40px;
+        width: 80px;
+        font-size: 24px;
+      }
+
+      #score-display {
+        position: absolute;
+        top: 150px;
+        left: 140px;
+        font-size: 24px;
+      }
+      
+      #instructions {
+        position: absolute;
+        left: 40px;
+        top: 200px;
+        padding-right: 20px;
+      }
+      
+      #stickman {
+        position: absolute;
+        left: 20px;
+        top: 300px;
+      }
+      
+      #numberline {
+        position: absolute;
+        left: 24px;
+        top: 400px;
+        width: 358px;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div id="graph">
+      <img src="images/background.png" />
+    </div>
+    <canvas id="theCanvas" width="784" height="446" >Your browser is not supported by this application.</canvas>
+	
+	<div id="controls">
+	  <div id="puzzleName">Puzzle #1</div>
+	  <img id="restart" src="images/redo.png" title="Restart" />
+	  <img id="previous" src="images/previous.png" title="Previous puzzle" />
+	  <img id="next" src="images/next.png" title="Next puzzle" />
+	  <div id="score-label">Score:</div>
+	  <div id="score-display">0</div>
+	  <!-- Stickman is from http://xkcd.com/1218/ -->
+	  <img id="stickman" src="images/stickman.png" title="Drag me!" />
+	  <img id="numberline" src="images/numberline.png" />
+	  
+	  <div id="instructions">
+	  You can move the stickman below right and left on the number line. The objective of this game is to get as
+	  close as possible to the graph shown to the left. Time starts when you first move the stickman.
+	  </div>
+	</div>
+    
+    <div id="debug"></div>
+  
+  </body>
+</html>
